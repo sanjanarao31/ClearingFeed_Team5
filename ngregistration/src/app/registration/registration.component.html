@@ -1,0 +1,36 @@
+<div class="container">
+    <h2 class="textual">Register</h2>
+    <form #Registerform="ngForm" (ngSubmit)="registerUser()">
+        <div class="form-group" style="margin-left: 12em;">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" style="width: 25em; " placeholder="Enter email" name="email" [(ngModel)]="user.emailId" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" #email="ngModel" [class.is-invalid]="email.invalid && email.touched">
+
+            <div *ngIf="email.errors && (email.invalid && email.touched)">
+                <small class="text-danger" *ngIf="email.errors.required">EmailId is Required Feild</small>
+                <small class="text-danger" *ngIf="email.errors.pattern">Enter proper Email id</small>
+
+            </div>
+        </div>
+
+
+
+        <div class="form-group" style="margin-left: 12em;">
+            <label for="pwd">Password:</label>
+            <input type="password" class="form-control" placeholder="Enter password" style="width: 25em;" name="password" [(ngModel)]="user.password" required #password="ngModel" [class.is-invalid]="password.invalid && password.touched">
+            <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is required field</small>
+
+        </div>
+        <div class="form-group" style="margin-left: 12em;">
+            <label for="pwd">Confirm Password:</label>
+            <input type="password" style="width: 25em;" class="form-control" placeholder="Enter confirmed password" name="cpassword" #cpassword="ngModel" (ngModel)="user.password" required [class.is-invalid]="cpassword.invalid && cpassword.touched">
+            <small class="text-danger" [class.d-none]="(cpassword.value == password.value) || cpassword.untouched">Password must be same as above</small>
+
+        </div>
+
+
+        <button [disabled]="Registerform.form.invalid" type="submit" class="btn btn-info" style="margin-left: 32em;">Register</button>
+        <br><br>
+        <button type="button" class="float" [routerLink]="['/login']" style="margin-left: 28em;">Existing User? Login Here</button>
+
+    </form>
+</div>

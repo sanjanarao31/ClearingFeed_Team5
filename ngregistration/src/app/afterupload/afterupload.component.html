@@ -1,0 +1,44 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.2/xlsx.full.min.js"></script>
+
+<body>
+    <h1 style="text-align: center;">Download clear feed file </h1>
+    <div class="conatiner mt-5">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-3">
+                <input class="form-control" type="file" id="input" accept=".xls,.xlsx">
+            </div>
+            <div class="col-md-2">
+
+                <input type="button" value="Download" onClick="window.location.href='C://Users//Admin//Documents//Userlogin//ngregistration//src//app//afterupload//Final.xlsx'">
+            </div>
+
+
+            <div class="col-md-12">
+
+                <br>
+                <br>
+                <table style="width:10% ; margin-left:auto; margin-right:auto">
+                    <tr>
+                        <th>Wrong transaction Record ID</th>
+                    </tr>
+                    <tr>123456789014</tr>
+                    <tr>12345678901</tr>
+                    <tr>156456789017</tr>
+                    <tr>123456225519</tr>
+                    <tr>123456225519</tr>
+                    <tr>123456789020</tr>
+                    <style>
+                        table,
+                        tr,
+                        td {
+                            border: 1px solid black;
+                        }
+                    </style>
+                </table>
+                <pre id="jsondata"></pre>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="afterupload.component.ts"></script>

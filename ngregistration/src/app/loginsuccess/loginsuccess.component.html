@@ -1,0 +1,23 @@
+<h1 class="heading">
+    Upload File</h1>
+
+
+<div class="container row" style="margin: 3em; margin-left: 30em;">
+    <div class="col-md-6">
+
+        <input class="inputFile" type="file" (change)="onFileChanged($event) " accept=".xlsx, .xls, .csv" />
+
+    </div>
+    <div class="col-md-6">
+        <input class="butt" style="margin-left: -10em; padding: 1.5%;" type="button" (click)="onUpload()" value="upload">
+    </div>
+</div>
+
+<div class="container row">
+    <div class="col-md-12">
+        <div *ngIf=message style="margin-left: 26em;">{{message}} </div>
+
+    </div>
+</div>
+<hr />
+<button class="navigate" onclick="window.location='http://localhost:4200/afterupload'" style="margin: 1%; margin-left: 45%;">Next</button>
