@@ -1,44 +1,49 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.2/xlsx.full.min.js"></script>
+<br>
+<h1>Feed file of Successful records</h1>
 
-<body>
-    <h1 style="text-align: center;">Download clear feed file </h1>
-    <div class="conatiner mt-5">
-        <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-3">
-                <input class="form-control" type="file" id="input" accept=".xls,.xlsx">
-            </div>
-            <div class="col-md-2">
+<table class="table table-striped  table-bordered">
 
-                <input type="button" value="Download" onClick="window.location.href='C://Users//Admin//Documents//Userlogin//ngregistration//src//app//afterupload//Final.xlsx'">
-            </div>
+    <tr>
+        <th> TransactionReference</th>
+        <th> ValueDate</th>
+        <th> Payer</th>
+        <th> Payee</th>
+        <th> Amount</th>
+    </tr>
 
 
-            <div class="col-md-12">
+    <td>
+        <tr *ngFor="let rec of right, let i=index"> {{ rec[i].TransactionReference}}</tr>
+    </td>
+    <td>
+        <tr *ngFor="let rec of right, let i=index"> {{ rec[i].ValueDate}}</tr>
+    </td>
+    <td>
+        <tr *ngFor="let rec of right, let i=index"> {{ rec[i].PayerName }}{{rec[i].PayerAccount}}</tr>
 
-                <br>
-                <br>
-                <table style="width:10% ; margin-left:auto; margin-right:auto">
-                    <tr>
-                        <th>Wrong transaction Record ID</th>
-                    </tr>
-                    <tr>123456789014</tr>
-                    <tr>12345678901</tr>
-                    <tr>156456789017</tr>
-                    <tr>123456225519</tr>
-                    <tr>123456225519</tr>
-                    <tr>123456789020</tr>
-                    <style>
-                        table,
-                        tr,
-                        td {
-                            border: 1px solid black;
-                        }
-                    </style>
-                </table>
-                <pre id="jsondata"></pre>
-            </div>
-        </div>
-    </div>
-</body>
-<script src="afterupload.component.ts"></script>
+    </td>
+
+    <td>
+        <tr *ngFor="let rec of right, let i=index"> {{ rec[i].PayeeName}}{{rec[i].PayeeAccount}}</tr>
+
+    </td>
+
+    <td>
+        <tr *ngFor="let rec of right, let i=index"> {{ rec[i].Amount}}</tr>
+    </td>
+
+</table>
+<br><br><br>
+<h3>Transactions that failed</h3>
+<table class="table table-striped">
+    <td>
+        <tr *ngFor="let item of wrong, let i = index">{{item[0]}}</tr>
+        <tr *ngFor="let item of wrong, let i = index">{{item[1]}}</tr>
+        <tr *ngFor="let item of wrong, let i = index">{{item[2]}}</tr>
+        <tr *ngFor="let item of wrong, let i = index">{{item[3]}}</tr>
+        <tr *ngFor="let item of wrong, let i = index">{{item[4]}}</tr>
+        <tr *ngFor="let item of wrong, let i = index">{{item[5]}}</tr>
+    </td>
+
+</table>
+<p>Check the above transactions again!</p>

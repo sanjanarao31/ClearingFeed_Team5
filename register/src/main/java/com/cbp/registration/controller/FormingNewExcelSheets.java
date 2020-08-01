@@ -24,8 +24,8 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 public class FormingNewExcelSheets 
 {
-	private static String[] columns = {"Payee Account","Value Date","Payer Name","Payee Name","Amount","Transaction Reference","Payer Account"};
-	public static ArrayList CreateSheet() 
+	private static String[] columns = {"PayeeAccount","TransactionReference","PayeeName","Amount","ValueDate","PayerName","PayerAccount"};
+	public static List<Object> CreateSheet() 
 	{
 		JSONArray temp = new JSONArray();
 		Validation B = new Validation();
@@ -52,7 +52,7 @@ public class FormingNewExcelSheets
 	    for(int i =0;i<finans.size() - 1;i++) 
 		{
 	    	Row row = sheet.createRow(rowNum++);
-		JSONObject object = (JSONObject) ((ArrayList) finans.get(0)).get(i); // your json object
+		JSONObject object = (JSONObject) ((ArrayList) finans.get(0)).get(i);// your json object
 		for(int j=0;j<columns.length;j++)
 		{
 			int cellnum = 0;
@@ -80,7 +80,7 @@ public class FormingNewExcelSheets
 	        workbook.write(out);
 	        out.close();
 	        System.out.println("Final report written successfully on disk.");
-	        return (ArrayList) finans.get(finans.size()-1);
+	        return finans;
 	    } 
 	    catch (Exception e) 
 	    {
